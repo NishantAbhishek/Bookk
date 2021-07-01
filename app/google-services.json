@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "696761536650",
+    "project_id": "bookk-e6f58",
+    "storage_bucket": "bookk-e6f58.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:696761536650:android:62b804a90e6bc551d0dd73",
+        "android_client_info": {
+          "package_name": "com.example.bookk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "696761536650-opuclmvsbncidpkq7c8boos5lu0gh9j4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLqwz5fH4T8Fxp0e67I4k9r-TRc-_8QDw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "696761536650-opuclmvsbncidpkq7c8boos5lu0gh9j4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
