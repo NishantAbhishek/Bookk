@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">Booky</string>
+    <string name="app_name">Library</string>
     <string name="user_loggedIn">User_LoggedIn</string>
+    <string name="user_email">Email</string>
+    <string name="user_name">Name</string>
     <string name="cache">cache</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

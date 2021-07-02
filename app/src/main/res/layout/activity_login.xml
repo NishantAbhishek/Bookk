@@ -18,7 +18,7 @@
         android:textColor="@color/purple_700"
         android:fontFamily="@font/carter_one"
         android:gravity="center"
-        android:text="Welcome to Booky"
+        android:text="Welcome to Library"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </TextView>
@@ -46,7 +46,11 @@
             </TextView>
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
+                android:id="@+id/emailInputLayout"
                 android:layout_marginTop="10dp"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_baseline_error_24"
+                app:errorIconTint="@color/red"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatEditText
@@ -57,8 +61,11 @@
                     android:textColorHint="#837D7D"/>
             </com.google.android.material.textfield.TextInputLayout>
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/passwordInputLayout"
                 android:layout_width="match_parent"
-                android:layout_marginTop="10dp"
+                app:errorEnabled="true"
+                app:errorIconDrawable="@drawable/ic_baseline_error_24"
+                app:errorIconTint="@color/red"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_height="wrap_content">
                 <androidx.appcompat.widget.AppCompatEditText
@@ -80,6 +87,7 @@
                     android:layout_height="wrap_content">
                 </TextView>
                 <TextView
+                    android:id="@+id/signUp"
                     android:textColor="@color/purple_500"
                     android:layout_marginTop="10dp"
                     android:text="SignUp"
@@ -88,6 +96,7 @@
                 </TextView>
             </LinearLayout>
             <Button
+                android:id="@+id/submit"
                 android:textColor="@color/white"
                 android:background="@drawable/normal_btn"
                 android:layout_marginTop="5dp"
@@ -100,6 +109,7 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
     <TextView
+        android:id="@+id/skip"
         android:layout_gravity="center"
         android:textColor="@color/purple_700"
         android:layout_marginTop="10dp"

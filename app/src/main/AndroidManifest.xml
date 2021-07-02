@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bookk">
-
+    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookk">
         <activity android:name=".View.Auth.SingUpActivity"></activity>
-        <activity android:name=".View.Auth.LoginActivity" />
+        <activity android:name=".View.Auth.LoginActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".MainActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>

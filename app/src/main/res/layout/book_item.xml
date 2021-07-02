@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    app:cardCornerRadius="5dp">
+
+    <ImageView
+        android:layout_centerVertical="true"
+        android:id="@+id/imageItem"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/horror">
+    </ImageView>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/imageItem"
+        android:minHeight="70dp">
+
+        <RelativeLayout
+            android:padding="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:id="@+id/liBody"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/genre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alef"
+                    android:text="Horror"
+                    android:textSize="15dp"></TextView>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp"
+                    android:fontFamily="@font/chela_one"
+                    android:maxLines="1"
+                    android:text="The Exorcist in the alley...."
+                    android:textColor="@color/black"
+                    android:textSize="20dp"></TextView>
+
+                <TextView
+                    android:id="@+id/publishYear"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/alef"
+                    android:text="Published in 2019"
+                    android:textSize="15dp"></TextView>
+            </LinearLayout>
+            <ImageView
+                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                android:layout_marginRight="3dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/liBody"
+                android:layout_width="20dp"
+                android:layout_height="20dp">
+            </ImageView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
