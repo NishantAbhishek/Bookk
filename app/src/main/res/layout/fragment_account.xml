@@ -1,14 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    android:id="@+id/layout"
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".View.Fragment.Account">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="120dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/wave_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
 
-</FrameLayout>
+    <TextView
+        android:layout_marginTop="20dp"
+        android:id="@+id/name"
+        android:layout_marginLeft="20dp"
+        android:textSize="28dp"
+        android:layout_toRightOf="@+id/avatar"
+        android:textColor="@color/white"
+        android:fontFamily="@font/alef"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <ImageView
+        android:layout_below="@id/name"
+        android:id="@+id/avatar"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp">
+    </ImageView>
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="10dp"
+        android:layout_margin="20dp"
+        android:layout_below="@+id/avatar"
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:minHeight="100dp"
+        android:layout_height="wrap_content">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:padding="20dp"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/imgEmail"
+                app:tint="@color/purple_700"
+                android:src="@drawable/ic_baseline_email_24"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+            </ImageView>
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgEmail"
+                android:id="@+id/tvEmail"
+                android:text="Email"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_below="@id/tvEmail"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgEmail"
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+
+            <ImageView
+                android:layout_below="@+id/imgEmail"
+                android:id="@+id/imgPhone"
+                app:tint="@color/purple_700"
+                android:src="@drawable/ic_baseline_local_phone_24"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+            </ImageView>
+            <TextView
+                android:layout_below="@+id/imgEmail"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgPhone"
+                android:id="@+id/tvPhone"
+                android:text="Phone"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_below="@id/tvPhone"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgPhone"
+                android:id="@+id/phone"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+
+            <ImageView
+                android:layout_below="@+id/imgPhone"
+                android:id="@+id/imgMember"
+                app:tint="@color/purple_700"
+                android:src="@drawable/ic_baseline_card_membership_24"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp">
+            </ImageView>
+            <TextView
+                android:layout_below="@+id/imgPhone"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgMember"
+                android:id="@+id/tvMember"
+                android:text="Member"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+            <TextView
+                android:textColor="@color/black"
+                android:layout_below="@id/tvMember"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/imgMember"
+                android:id="@+id/member"
+                android:layout_width="match_parent"
+                android:layout_height="20dp">
+            </TextView>
+            <TextView
+                android:id="@+id/tvVerify"
+                android:textColor="@color/purple_700"
+                android:gravity="center"
+                android:layout_marginTop="10dp"
+                android:layout_below="@id/member"
+                android:text="Click To Verify Your Email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+            </TextView>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_edit"
+        style="@style/Theme.MaterialComponents"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:src="@drawable/ic_outline_edit_24"
+        app:backgroundTint="@color/purple_700"
+        app:elevation="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        app:maxImageSize="30dp">
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+    <Button
+        android:id="@+id/logout"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/white"
+        android:text="LogOut"
+        android:layout_below="@id/cardView"
+        android:background="@drawable/normal_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </Button>
+
+
+</RelativeLayout>

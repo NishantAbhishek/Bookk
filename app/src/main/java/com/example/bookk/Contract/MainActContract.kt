@@ -6,6 +6,8 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 interface MainActContract {
     interface View{
         fun setFragment(fragment:Fragment);
+        fun showSnackBar(message:String);
+        fun startSignUpPage();
     }
 
     interface Presenter{

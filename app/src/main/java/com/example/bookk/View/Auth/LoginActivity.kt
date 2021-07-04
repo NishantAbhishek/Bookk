@@ -75,11 +75,5 @@ class LoginActivity : AppCompatActivity(),LoginContract.View, View.OnClickListen
     private fun startSignUpActivity() {
         startActivity(Intent(this,SingUpActivity::class.java));
     }
-    override fun saveUserDetail(name: String, email: String){
-        var editor: SharedPreferences.Editor = getSharedPreferences(getString(R.string.cache),MODE_PRIVATE).edit();
-        editor.putString(getString(R.string.user_email),email);
-        editor.putString(getString(R.string.user_name),name);
-        editor.putBoolean(getString(R.string.user_loggedIn),true);
-        editor.apply()
-    }
+
 }

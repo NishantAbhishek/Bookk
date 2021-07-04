@@ -17,6 +17,7 @@ class SplashActivity : AppCompatActivity(){
         splash();
     }
 
+
     fun splash(){
         Handler(Looper.getMainLooper()).postDelayed(object :Runnable{
             override fun run() {

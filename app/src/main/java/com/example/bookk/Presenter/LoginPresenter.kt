@@ -2,10 +2,12 @@ package com.example.bookk.Presenter
 import android.app.Dialog
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.example.bookk.Contract.LoginContract
 import com.example.bookk.R
 import com.google.android.gms.tasks.OnCompleteListener
@@ -27,6 +29,7 @@ class LoginPresenter(private val loginView:LoginContract.View,private val contex
             override fun onComplete(task: Task<AuthResult>) {
                 if(task.isSuccessful){
                     dialog.dismiss()
+                    saveUserDetail("",email)
                     loginView.startMainActivity()
                 }else{
                     dialog.dismiss()
@@ -74,5 +77,14 @@ class LoginPresenter(private val loginView:LoginContract.View,private val contex
     }
 
 
+    private fun saveUserDetail(name: String, email: String){
+        var editor: SharedPreferences.Editor = context.getSharedPreferences(context.getString(R.string.cache),
+            AppCompatActivity.MODE_PRIVATE
+        ).edit();
+        editor.putString(context.getString(R.string.user_email),email);
+        editor.putString(context.getString(R.string.user_name),name);
+        editor.putBoolean(context.getString(R.string.user_loggedIn),true);
+        editor.apply()
+    }
 
 }

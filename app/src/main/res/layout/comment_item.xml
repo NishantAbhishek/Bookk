@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:padding="5dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/imageItem"
+        android:src="@drawable/avatar2"
+        android:layout_width="50dp"
+        android:layout_height="50dp">
+    </ImageView>
+    <TextView
+        android:id="@+id/name"
+        android:textColor="@color/black"
+        android:fontFamily="@font/alef"
+        android:text="Nishant"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/imageItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/comment"
+        android:layout_marginTop="2dp"
+        android:layout_below="@+id/name"
+        android:fontFamily="@font/alef"
+        android:text="Loved it"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@id/imageItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </TextView>
+    <TextView
+        android:id="@+id/date"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/comment"
+        android:fontFamily="@font/alef"
+        android:text="03-Jul-21 07:41 pm"
+        android:layout_marginLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </TextView>
+    <View
+        android:background="@color/grey"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="3dp"
+        android:layout_below="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="1dp">
+    </View>
+</RelativeLayout>

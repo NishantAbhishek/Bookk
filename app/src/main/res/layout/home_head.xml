@@ -16,7 +16,8 @@
         android:src="@drawable/wave_home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></ImageView>
+        app:layout_constraintTop_toTopOf="parent">
+    </ImageView>
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
@@ -29,7 +30,8 @@
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"></TextView>
+        app:layout_constraintTop_toTopOf="@+id/imageView">
+    </TextView>
     <EditText
         android:textCursorDrawable="@drawable/color_cursor"
         android:layout_marginTop="20dp"

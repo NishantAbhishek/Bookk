@@ -13,7 +13,7 @@ interface HomeContract {
         fun getUnderLinesViews(view:android.view.View?):Array<android.view.View>
         fun onClick(view: android.view.View?);
         fun getAllBooks();
+        fun filterBooks(input: String?,list:ArrayList<Books>);
     }
-
 }
 

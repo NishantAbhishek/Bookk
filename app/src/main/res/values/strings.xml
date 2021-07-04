@@ -3,7 +3,32 @@
     <string name="user_loggedIn">User_LoggedIn</string>
     <string name="user_email">Email</string>
     <string name="user_name">Name</string>
+    <string name="user_phone">Phone</string>
+    <string name="user_member">Member</string>
+    <string name="user_avatar">Avatar</string>
     <string name="cache">cache</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="start_type">StartType</string>
+    <string name="lorem">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type
+        and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+        software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+
+    <string name="cache_bookId">BookId</string>
+    <string name="cache_popularity"></string>
+    <string name="cache_commentId">Comment</string>
+    <string name="cache_image">Image</string>
+    <string name="cache_name">Name</string>
+    <string name="cache_genre">Genre</string>
+    <string name="cache_rating">Rating</string>
+    <string name="cache_page">Page</string>
+    <string name="cache_language">Language</string>
+    <string name="cache_Year">Year</string>
+    <string name="cache_Description">Description</string>
+
+    <string name="childA">childA</string>
+    <string name="childC">childB</string>
+    <string name="childB">childC</string>
+
+
+
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

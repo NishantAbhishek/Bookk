@@ -17,7 +17,19 @@
         android:src="@drawable/horror">
     </ImageView>
 
+    <ImageView
+        android:layout_marginRight="5dp"
+        android:id="@+id/delete"
+        app:tint="@color/purple_500"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:layout_alignParentRight="true"
+        android:layout_width="20dp"
+        android:layout_centerVertical="true"
+        android:layout_height="20dp">
+    </ImageView>
+
     <androidx.cardview.widget.CardView
+        android:layout_marginRight="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imageItem"
@@ -29,7 +41,7 @@
             android:layout_height="wrap_content">
             <LinearLayout
                 android:id="@+id/liBody"
-                android:layout_width="200dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
@@ -37,11 +49,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/genre"
+                    android:id="@+id/date"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/alef"
-                    android:text="Horror"
+                    android:text="3 July 2021"
                     android:textSize="15dp"></TextView>
 
                 <TextView
@@ -54,24 +66,28 @@
                     android:maxLines="1"
                     android:text="The Exorcist in the alley...."
                     android:textColor="@color/black"
-                    android:textSize="20dp"></TextView>
+                    android:textSize="18dp">
+                </TextView>
 
                 <TextView
-                    android:id="@+id/publishYear"
+                    android:id="@+id/note"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/alef"
-                    android:text="Published in 2019"
-                    android:textSize="15dp"></TextView>
+                    android:layout_marginBottom="5dp"
+                    android:text="This is my Note so please do not delete it."
+                    android:textColor="@color/black"
+                    android:textSize="15dp">
+                </TextView>
             </LinearLayout>
             <ImageView
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                android:layout_marginRight="3dp"
-                android:layout_centerVertical="true"
-                android:layout_toRightOf="@+id/liBody"
-                android:layout_width="20dp"
-                android:layout_height="20dp">
+                app:tint="@color/purple_500"
+                android:src="@drawable/ic_outline_edit_24"
+                android:layout_alignParentRight="true"
+                android:id="@+id/edit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
             </ImageView>
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </RelativeLayout>

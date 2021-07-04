@@ -8,7 +8,6 @@ interface LoginContract {
         fun passwordError(message: String);
         fun showToast(message:String);
         fun startMainActivity();
-        fun saveUserDetail(name: String, email: String)
     }
 
     interface Presenter{

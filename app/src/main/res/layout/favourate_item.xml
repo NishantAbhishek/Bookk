@@ -17,7 +17,19 @@
         android:src="@drawable/horror">
     </ImageView>
 
+    <ImageView
+        android:layout_marginRight="5dp"
+        android:id="@+id/delete"
+        app:tint="@color/purple_500"
+        android:src="@drawable/ic_baseline_delete_24"
+        android:layout_alignParentRight="true"
+        android:layout_width="20dp"
+        android:layout_centerVertical="true"
+        android:layout_height="20dp">
+    </ImageView>
+
     <androidx.cardview.widget.CardView
+        android:layout_marginRight="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/imageItem"
@@ -64,8 +76,10 @@
                     android:text="Published in 2019"
                     android:textSize="15dp"></TextView>
             </LinearLayout>
+
             <ImageView
-                android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                app:tint="@color/purple_700"
+                android:src="@drawable/ic_baseline_favorite_24"
                 android:layout_marginRight="3dp"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/liBody"

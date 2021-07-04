@@ -10,12 +10,14 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import com.example.bookk.Contract.SignUpContract
+import com.example.bookk.Helper
 import com.example.bookk.R
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class SignupPresenter(
     private val signView: SignUpContract.View,
@@ -32,13 +34,31 @@ class SignupPresenter(
             .addOnCompleteListener(object :OnCompleteListener<AuthResult>{
                 override fun onComplete(task: Task<AuthResult>) {
                     if(task.isSuccessful){
-                        sendEmailVerification(email,password,firebaseAuth,dialog,name)
+                        setUserDetails(email,password,firebaseAuth,dialog,name);
                     }else{
                         dialog.dismiss()
                         signView.showSnackBar("Encountered some Problem...")
                     }
                 }
             });
+    }
+
+    private fun setUserDetails(email:String,password: String,firebaseAuth:FirebaseAuth,dialog: Dialog,name:String){
+        var reference = FirebaseDatabase.getInstance().reference.child("Account").child(Helper.getUid()!!);
+        var data: HashMap<String, Any?> = HashMap();
+        data["Avatar"] = 5;
+        data["Email"] = email
+        data["Member"] = "Basic"
+        data["Name"] = name
+        data["Phone"] = "0000000"
+
+        reference.setValue(data).addOnCompleteListener(object :OnCompleteListener<Void>{
+            override fun onComplete(task: Task<Void>) {
+                if(task.isSuccessful){
+                    sendEmailVerification(email,password,firebaseAuth,dialog,name)
+                }
+            }
+        })
     }
 
     private fun sendEmailVerification(email:String,password: String,firebaseAuth:FirebaseAuth,dialog: Dialog,name:String){
@@ -105,11 +125,12 @@ class SignupPresenter(
                 var passwordCheck = checkPassword(password);
                 var nameCheck = checkName(name);
                 if(emailCheck && passwordCheck && nameCheck){
-                    Toast.makeText(context,"Create Account",Toast.LENGTH_LONG).show()
                     signUpUser(email,password,name)
                 }
             }
         }
     }
+
+
 
 }
