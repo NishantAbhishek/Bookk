@@ -3,6 +3,7 @@ package com.example.bookk
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
@@ -11,9 +12,10 @@ import com.example.bookk.Presenter.MainActPresenter
 import com.example.bookk.View.Auth.SingUpActivity
 import com.example.bookk.View.Fragment.Home
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
-class MainActivity : AppCompatActivity(),MainActContract.View {
+class MainActivity : AppCompatActivity(),MainActContract.View,View.OnClickListener{
     private var currentFragment: Fragment = Home();
     private var presenter:MainActPresenter? = null;
 
@@ -36,6 +38,7 @@ class MainActivity : AppCompatActivity(),MainActContract.View {
     private fun initialize() {
         presenter = MainActPresenter(this,this);
         findViewById<BottomNavigationView>(R.id.bottomNavigation).setOnNavigationItemSelectedListener(presenter?.setBottomNavigationListener())
+        findViewById<FloatingActionButton>(R.id.fabBooks).setOnClickListener(this)
     }
 
     override fun setFragment(fragment: Fragment) {
@@ -60,5 +63,14 @@ class MainActivity : AppCompatActivity(),MainActContract.View {
         startActivity(Intent(this,SingUpActivity::class.java))
         finish()
     }
+
+    override fun startBorrowedAct(){
+        startActivity(Intent(this,BorrowedActivity::class.java))
+    }
+
+    override fun onClick(v: View?) {
+        presenter?.onClick(v)
+    }
+
 
 }

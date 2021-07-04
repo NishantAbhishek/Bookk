@@ -2,6 +2,7 @@ package com.example.bookk.Callbacks
 
 import android.widget.ImageView
 import android.widget.TextView
+import com.example.bookk.Model.BorrowedModel
 import com.example.bookk.Model.NoteModel
 
 interface ItemClick {
@@ -16,4 +17,6 @@ interface NoteCallback{
     fun editNote(note:NoteModel);
     fun deleteNote(note:NoteModel);
 }
-
+interface BorrowedCallback{
+    fun deleteBorrowed(book: BorrowedModel)
+}

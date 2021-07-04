@@ -1,5 +1,6 @@
 package com.example.bookk.View.Fragment
 
+import android.content.Intent
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import com.example.bookk.Helper
 import com.example.bookk.Model.AccountInfo
 import com.example.bookk.Presenter.AccountPresenter
 import com.example.bookk.R
+import com.example.bookk.View.Auth.LoginActivity
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 
@@ -56,7 +58,10 @@ class Account : Fragment(),AccountContract.View,View.OnClickListener{
         }else{
             view?.findViewById<TextView>(R.id.tvVerify)?.text = "Congrats, Email is Verified"
         }
+
+        view?.findViewById<TextView>(R.id.logout)?.setOnClickListener(this)
         view?.findViewById<TextView>(R.id.tvVerify)?.setOnClickListener(this)
+        view?.findViewById<FloatingActionButton>(R.id.fab_edit)?.setOnClickListener(this)
     }
 
     override fun onClick(v: View?) {
@@ -64,10 +69,14 @@ class Account : Fragment(),AccountContract.View,View.OnClickListener{
     }
 
     override fun showSnackBar(message: String) {
-        Snackbar.make(requireView().findViewById<RelativeLayout>(R.id.layout),message, Snackbar.LENGTH_LONG).show()
+        Snackbar.make(requireView().findViewById<RelativeLayout>(R.id.layout),message, 350).show()
     }
 
     override fun setVerifyText(text: String) {
         view?.findViewById<TextView>(R.id.tvVerify)?.text = "Congrats, Email is Verified"
+    }
+
+    override fun startLoginActivity(){
+        context?.startActivity(Intent(activity,LoginActivity::class.java))
     }
 }

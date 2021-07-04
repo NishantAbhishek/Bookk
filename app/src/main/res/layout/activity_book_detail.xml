@@ -83,6 +83,32 @@
         </TextView>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_below="@id/favorite"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:id="@+id/comment"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_baseline_comment_24"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:tint="@color/purple_700">
+        </ImageView>
+
+        <TextView
+            android:textSize="12dp"
+            android:layout_marginLeft="5dp"
+            android:text="Comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+    </LinearLayout>
+
 
     <ImageView
         android:layout_centerHorizontal="true"
@@ -285,6 +311,7 @@
                 android:layout_height="wrap_content">
             </TextView>
             <Button
+                android:id="@+id/borrow"
                 android:layout_gravity="center"
                 android:textColor="@color/white"
                 android:background="@drawable/normal_btn"

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    android:id="@+id/layout"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/layout"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".View.Fragment.Notes">
-
+    tools:context=".BorrowedActivity">
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
@@ -25,7 +23,7 @@
         android:layout_margin="5dp"
         android:fontFamily="@font/carter_one"
         android:gravity="center"
-        android:text="Notes"
+        android:text="Borrowed Books"
         android:textColor="@color/white"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -33,10 +31,7 @@
         app:layout_constraintTop_toTopOf="@+id/imageView">
     </TextView>
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_marginBottom="40dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_margin="10dp"
         android:layout_below="@id/textView"
         android:id="@+id/recycler"
         android:layout_width="match_parent"

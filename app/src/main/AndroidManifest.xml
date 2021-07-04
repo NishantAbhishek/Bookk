@@ -11,7 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Bookk">
-        <activity android:name=".BookDetailActivity"></activity>
+        <activity android:name=".CommentActivity"></activity>
+        <activity android:name=".BorrowedActivity" />
+        <activity android:name=".BookDetailActivity" />
         <activity android:name=".View.Auth.SingUpActivity" />
         <activity
             android:name=".View.Auth.LoginActivity"

@@ -12,6 +12,7 @@ import com.example.bookk.Callbacks.EmailVerifiedCallback
 import com.example.bookk.Contract.BookDetailContract
 import com.example.bookk.Helper
 import com.example.bookk.Model.Books
+import com.example.bookk.Model.BorrowedModel
 import com.example.bookk.R
 import com.example.bookk.View.Fragment.Home
 import com.google.android.gms.tasks.OnCompleteListener
@@ -34,6 +35,51 @@ class BookDetailPresenter(
             R.id.scrollDown -> bookView.scrollBottom()
             R.id.note -> noteCreateDialog()
             R.id.favorite -> addToFavorite()
+            R.id.comment-> bookView.startCommentAct()
+            R.id.borrow->checkVerification()
+        }
+    }
+
+    private fun checkVerification(){
+        if(userLoggedIn){
+            Helper.isEmailVerified(object :EmailVerifiedCallback{
+                override fun isEmailVerified(emailVerified: Boolean) {
+                    if(emailVerified){
+                        borrowBook()
+                    }else{
+                        bookView.showSnackBar("Verify Email from Account Page!!!")
+                    }
+                }
+            })
+        }else{
+            bookView.showSnackBar("Please Create An Account First")
+        }
+
+    }
+
+    private fun borrowBook(){
+        if(Helper.getUid()!=null){
+            var reference = FirebaseDatabase.getInstance().
+            reference.child("Borrowed").child(Helper.getUid()!!);
+            var borrowBook = BorrowedModel("Borrowed",Helper.getUid(),
+                book.Id,book.Id,book.Genre,book.Image,book.Name,book.Release);
+
+            var loadingDialog = loadingDialog();
+            loadingDialog.show()
+
+            reference.child(book.Id!!).setValue(borrowBook).addOnCompleteListener(object:OnCompleteListener<Void>{
+                override fun onComplete(task: Task<Void>) {
+                    loadingDialog.dismiss()
+                    if(task.isSuccessful){
+                        bookView.showSnackBar("Successfully Borrowed Book..")
+                    }else{
+                        bookView.showSnackBar("Sorry Failure!!")
+                    }
+                }
+            })
+
+        }else{
+            bookView.showSnackBar("Some Problem Occurred")
         }
     }
 
@@ -205,6 +251,7 @@ class BookDetailPresenter(
             AppCompatActivity.MODE_PRIVATE
         );
         var startType = sharedPreference.getInt(context.getString(R.string.start_type),Helper.HOMESTART);
+
         if(startType==Helper.HOMESTART){
             bookView.setBookDetail(book,startType)
         }else{
@@ -225,9 +272,12 @@ class BookDetailPresenter(
             override fun onDataChange(snapshot: DataSnapshot) {
                 var book_ = snapshot.getValue(Books::class.java)
                 if(book_!=null){
+                    book = book_;
+                }
+                if(book_!=null){
                     bookView.setBookDetail(book_!!,startType)
                 }else{
-                    bookView.showSnackBar("Some problem occured")
+                    bookView.showSnackBar("Some problem occurred")
                 }
             }
         })

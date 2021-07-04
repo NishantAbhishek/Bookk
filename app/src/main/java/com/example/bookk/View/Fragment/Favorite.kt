@@ -83,7 +83,7 @@ class Favorite : Fragment(),FavoriteContract.View,FavoriteCallback{
         if(message.equals("Some Problem Occurred")){
             presenter.getFavorite()
         }
-        Snackbar.make(requireView().findViewById<RelativeLayout>(R.id.layout),message, 250).show()
+        Snackbar.make(requireView().findViewById<RelativeLayout>(R.id.layout),message, 350).show()
     }
 
     override fun removeAllElement() {

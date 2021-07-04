@@ -3,6 +3,7 @@ package com.example.bookk.Presenter
 import android.app.Dialog
 import android.content.Context
 import android.view.MenuItem
+import android.view.View
 import android.widget.Button
 import com.example.bookk.Callbacks.EmailVerifiedCallback
 import com.example.bookk.Contract.MainActContract
@@ -33,11 +34,11 @@ class MainActPresenter(private var context: Context, private var mainView: MainA
                 };
                 R.id.nav_fav -> {
                     if (userLoggedIn && Helper.getUid() != null) {
-                        Helper.isEmailVerified(object :EmailVerifiedCallback{
+                        Helper.isEmailVerified(object : EmailVerifiedCallback {
                             override fun isEmailVerified(emailVerified: Boolean) {
-                                if(emailVerified){
+                                if (emailVerified) {
                                     mainView.setFragment(Favorite())
-                                }else{
+                                } else {
                                     mainView.showSnackBar("Verify Email from Account Page!!!")
                                 }
                             }
@@ -49,7 +50,7 @@ class MainActPresenter(private var context: Context, private var mainView: MainA
                 };
                 R.id.nav_note -> {
                     if (userLoggedIn && Helper.getUid() != null) {
-                        Helper.isEmailVerified(object:EmailVerifiedCallback{
+                        Helper.isEmailVerified(object : EmailVerifiedCallback {
                             override fun isEmailVerified(emailVerified: Boolean) {
                                 if (emailVerified) {
                                     mainView.setFragment(Notes())
@@ -63,10 +64,10 @@ class MainActPresenter(private var context: Context, private var mainView: MainA
                     }
                 };
                 R.id.nav_account -> {
-                    return if(userLoggedIn && Helper.getUid() != null){
+                    return if (userLoggedIn && Helper.getUid() != null) {
                         mainView.setFragment(Account())
                         true;
-                    }else{
+                    } else {
                         return createAnAccountDialog()
                     }
                 };
@@ -75,11 +76,11 @@ class MainActPresenter(private var context: Context, private var mainView: MainA
         }
     }
 
-    fun createAnAccountDialog():Boolean{
+    fun createAnAccountDialog(): Boolean {
         var dialog = Dialog(context);
         dialog.setContentView(R.layout.create_account_dialog);
         dialog.show()
-        dialog.findViewById<Button>(R.id.ok).setOnClickListener{mainView.startSignUpPage()}
+        dialog.findViewById<Button>(R.id.ok).setOnClickListener { mainView.startSignUpPage() }
         return false
     }
 
@@ -94,4 +95,24 @@ class MainActPresenter(private var context: Context, private var mainView: MainA
                 .getBoolean(context.getString(R.string.user_loggedIn), false);
     }
 
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.fabBooks -> {
+                if (userLoggedIn && Helper.getUid() != null) {
+                    Helper.isEmailVerified(object : EmailVerifiedCallback {
+                        override fun isEmailVerified(emailVerified: Boolean) {
+                            if (emailVerified) {
+                                mainView.startBorrowedAct()
+                            } else {
+                                mainView.showSnackBar("Verify Email from Account Page!!!")
+                            }
+                        }
+                    })
+                } else {
+                    createAnAccountDialog()
+                }
+            };
+        }
+    }
 }

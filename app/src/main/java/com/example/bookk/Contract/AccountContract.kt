@@ -8,6 +8,7 @@ interface AccountContract {
         fun setViews(accountInfo: AccountInfo?);
         fun showSnackBar(message: String)
         fun setVerifyText(text: String)
+        fun startLoginActivity()
     }
     interface Presenter{
         fun getUserAccountInfo();

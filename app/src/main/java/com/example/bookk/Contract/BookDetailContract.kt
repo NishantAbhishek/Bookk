@@ -9,6 +9,7 @@ interface BookDetailContract{
         fun scrollBottom();
         fun showSnackBar(message: String)
         fun setBookDetail(book:Books,startType:Int);
+        fun startCommentAct()
     }
 
     interface Presenter{

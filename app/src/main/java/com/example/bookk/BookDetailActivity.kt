@@ -1,5 +1,6 @@
 package com.example.bookk
 
+import android.content.Intent
 import android.opengl.Visibility
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
@@ -48,6 +49,9 @@ class BookDetailActivity : AppCompatActivity(),View.OnClickListener,BookDetailCo
         findViewById<LinearLayout>(R.id.scrollTop).setOnClickListener(this)
         findViewById<LinearLayout>(R.id.note).setOnClickListener(this)
         findViewById<LinearLayout>(R.id.favorite).setOnClickListener(this)
+        findViewById<LinearLayout>(R.id.comment).setOnClickListener(this)
+        findViewById<Button>(R.id.borrow).setOnClickListener(this)
+
     }
 
 
@@ -68,6 +72,10 @@ class BookDetailActivity : AppCompatActivity(),View.OnClickListener,BookDetailCo
 
     override fun showSnackBar(message: String) {
         Snackbar.make(findViewById<RelativeLayout>(R.id.layout),message, Snackbar.LENGTH_LONG).show()
+    }
+
+    override fun startCommentAct(){
+        startActivity(Intent(this,CommentActivity::class.java))
     }
 
 }
