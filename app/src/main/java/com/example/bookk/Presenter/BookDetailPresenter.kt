@@ -2,6 +2,7 @@ package com.example.bookk.Presenter
 
 import android.app.Dialog
 import android.content.Context
+import android.content.SharedPreferences
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
@@ -35,8 +36,22 @@ class BookDetailPresenter(
             R.id.scrollDown -> bookView.scrollBottom()
             R.id.note -> noteCreateDialog()
             R.id.favorite -> addToFavorite()
-            R.id.comment-> bookView.startCommentAct()
+            R.id.comment-> {
+                saveCommentDetails()
+            }
             R.id.borrow->checkVerification()
+        }
+    }
+    fun saveCommentDetails(){
+        if(book!=null){
+            var edit = context.getSharedPreferences(context.getString(R.string.cache),Context.MODE_PRIVATE).edit()
+            edit.putString(context.getString(R.string.cache_name),book.Name);
+            edit.putString(context.getString(R.string.cache_image),book.Image);
+            edit.putString(context.getString(R.string.comment_id),book.CommentId);
+            edit.commit()
+            bookView.startCommentAct()
+        }else{
+            bookView.showSnackBar("Wait...")
         }
     }
 
@@ -273,8 +288,6 @@ class BookDetailPresenter(
                 var book_ = snapshot.getValue(Books::class.java)
                 if(book_!=null){
                     book = book_;
-                }
-                if(book_!=null){
                     bookView.setBookDetail(book_!!,startType)
                 }else{
                     bookView.showSnackBar("Some problem occurred")

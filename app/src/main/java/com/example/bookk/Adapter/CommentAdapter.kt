@@ -38,13 +38,19 @@ class CommentAdapter(val context: Context?, var list:ArrayList<CommentModel>):
     inner class ViewHolder(itemView:View): RecyclerView.ViewHolder(itemView){
         private var imageItem = itemView.findViewById<ImageView>(R.id.imageItem);
         private var name = itemView.findViewById<TextView>(R.id.name)
-        private var comment = itemView.findViewById<TextView>(R.id.comment)
+        private var comment_ = itemView.findViewById<TextView>(R.id.comment)
         private var date = itemView.findViewById<TextView>(R.id.date)
 
         fun setViews(comment:CommentModel){
             when(comment.Avatar){
-
+                1->imageItem.setImageDrawable(context?.getDrawable(R.drawable.avatar_1));
+                2->imageItem.setImageDrawable(context?.getDrawable(R.drawable.avatar2));
+                4->imageItem.setImageDrawable(context?.getDrawable(R.drawable.avatar_4));
+                4->imageItem.setImageDrawable(context?.getDrawable(R.drawable.avatar_5));
             }
+            name.text = comment.User
+            comment_.text = comment.Comment
+            date.text = comment.Date
         }
     }
 }
