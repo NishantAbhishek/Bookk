@@ -1,5 +1,6 @@
 # Bookk
-Library app, user can borrow and read book. Created using Firebase database and kotlin
+Library app, user can borrow and read book. Created using Firebase database and kotlin.
+MVP architecture pattern used.
 
 Project Video:-
 https://www.youtube.com/watch?v=8w7hn1yJ6Ik
